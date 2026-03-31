@@ -1,0 +1,203 @@
+/* App-level styles for the Todo UI */
+
+.app {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.appHeader {
+  margin-bottom: 18px;
+}
+
+.appHeader h1 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.appHeader p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.todoPanel {
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.todoForm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+  
+  margin: 0;
+}
+
+.todoField {
+  display: grid;
+  gap: 6px;
+}
+
+.todoLabel {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.todoInput {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--inputBg);
+  color: var(--text);
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.todoInput::placeholder {
+  color: color-mix(in srgb, var(--muted) 70%, transparent);
+}
+
+.todoInput:focus-visible {
+  border-color: color-mix(in srgb, var(--primary) 70%, var(--border));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.todoButton {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: linear-gradient(180deg, var(--primary), color-mix(in srgb, var(--primary) 85%, #000 15%));
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 12ms ease, filter 120ms ease, box-shadow 160ms ease;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--primary) 22%, transparent);
+  white-space: nowrap;
+}
+
+.todoButton:hover {
+  filter: brightness(1.03) saturate(1.02);
+}
+
+.todoButton:active {
+  transform: translateY(1px);
+}
+
+.todoButton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 22%, transparent), 0 10px 24px color-mix(in srgb, var(--primary) 22%, transparent);
+}
+
+.todoList {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--itemBg);
+}
+
+.todoItemText {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--text);
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.todoItemActions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.todoDeleteButton {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, background 140ms ease, border-color 140ms ease, box-shadow 160ms ease;
+  white-space: nowrap;
+}
+
+.todoDeleteButton:hover {
+  border-color: color-mix(in srgb, var(--border) 95%, transparent);
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+}
+
+.todoDeleteButton:active {
+  transform: translateY(1px);
+}
+
+.todoDeleteButton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.emptyState {
+  margin: 16px 0 0;
+  color: var(--muted);
+  border: 1px dashed color-mix(in srgb, var(--border) 85%, transparent);
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  padding: 14px;
+  border-radius: 14px;
+}
+
+@media (max-width: 540px) {
+  .todoPanel {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .todoForm {
+    gap: 10px;
+    grid-template-columns: 1fr ;
+  }
+
+  .todoInput {
+    padding: 11px 12px;
+  }
+
+  .todoButton {
+    width: auto;
+    padding: 11px 12px;
+  }
+
+  .todoItem {
+    padding: 11px 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .todoButton {
+    font-size: 0.9rem;
+  }
+
+  .todoDeleteButton {
+    padding: 9px 10px;
+    font-size: 0.9rem;
+  }
+}
+
